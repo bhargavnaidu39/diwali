@@ -4,51 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#180b2c">
-<title>A Little Diwali Surprise ✨</title>
+<title>A Diwali Surprise for Paddu Bangaramm ✨</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 0%,#59265e,#25113e 48%,#10091f);color:#fff8ec;font-family:'DM Sans',sans-serif}
+body{margin:0;min-height:100vh;min-height:100svh;overflow-x:hidden;overflow-y:auto;display:grid;place-items:center;padding:48px 0 60px;background:radial-gradient(ellipse at 50% 0%,#59265e,#25113e 48%,#10091f);color:#fff8ec;font-family:'DM Sans',sans-serif}
 .glow{position:fixed;width:390px;height:390px;border-radius:50%;filter:blur(90px);opacity:.2;pointer-events:none}.g1{background:#ff9e43;top:-230px;left:-130px}.g2{background:#b64cff;bottom:-260px;right:-100px}
 #stars{position:fixed;inset:0;pointer-events:none}.star{position:absolute;color:#ffe4a3;animation:twinkle 2.5s infinite alternate}@keyframes twinkle{to{opacity:.15;transform:scale(.65)}}
-.card{position:relative;z-index:2;width:min(92vw,650px);padding:clamp(28px,6vw,58px) clamp(20px,6vw,54px);text-align:center;border:1px solid #ffdc9e40;border-radius:30px;background:linear-gradient(145deg,#ffffff1f,#ffffff0b);box-shadow:0 25px 90px #0006;backdrop-filter:blur(16px)}
-.eyebrow{color:#ffd477;text-transform:uppercase;letter-spacing:.25em;font-size:.72rem;font-weight:700}.lamp{font-size:5rem;margin:14px 0 8px;display:inline-block;filter:drop-shadow(0 0 22px #ffad43);animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-9px)}}
-h1{font:800 clamp(2rem,6vw,3.5rem)/1.13 'Playfair Display',serif;margin:12px 0 16px}h1 span{color:#ffd477}.subtitle{color:#e7d9ed;line-height:1.75;max-width:460px;margin:auto}
-.question{font:600 clamp(1.2rem,4vw,1.65rem) 'Playfair Display',serif;margin:27px 0 0}.buttons{display:flex;justify-content:center;align-items:center;gap:18px;margin:34px auto 10px;min-height:58px}
+.card{position:relative;z-index:2;width:min(92vw,650px);max-height:calc(100svh - 90px);overflow-y:auto;padding:clamp(24px,5vw,52px) clamp(19px,6vw,54px);text-align:center;border:1px solid #ffdc9e40;border-radius:30px;background:linear-gradient(145deg,#ffffff1f,#ffffff0b);box-shadow:0 25px 90px #0006;backdrop-filter:blur(16px)}
+.eyebrow{color:#ffd477;text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700}
+.names{margin:12px auto 4px;color:#ffe09a;font:700 clamp(1.15rem,4vw,1.5rem) 'Playfair Display',serif}
+.lamp{font-size:4.5rem;margin:12px 0 8px;display:inline-block;filter:drop-shadow(0 0 22px #ffad43);animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-9px)}}
+h1{font:800 clamp(2rem,6vw,3.4rem)/1.13 'Playfair Display',serif;margin:12px 0 16px}h1 span{color:#ffd477}
+.subtitle{color:#e7d9ed;line-height:1.75;max-width:460px;margin:auto}
+.question{font:600 clamp(1.2rem,4vw,1.65rem) 'Playfair Display',serif;margin:25px 0 0}
+.buttons{display:flex;justify-content:center;align-items:center;gap:18px;margin:32px auto 10px;min-height:58px}
 button{border:0;border-radius:999px;padding:15px 34px;min-width:126px;font:700 1rem 'DM Sans',sans-serif;cursor:pointer;touch-action:manipulation}
 #yes,#again{color:#32152e;background:linear-gradient(135deg,#ffe7a5,#ffb94f);box-shadow:0 8px 25px #ffbd5845}
-#no{color:white;background:#ffffff1f;border:1px solid #ffffff70;transition:left .16s ease,top .16s ease;white-space:nowrap}
+#no{color:white;background:#ffffff1f;border:1px solid #ffffff80;white-space:nowrap;z-index:30;transition:left .12s ease-out,top .12s ease-out}
 .hint{color:#bfaecb;font-size:.78rem;margin-top:18px}.hidden{display:none!important}
-.message{font-size:1.08rem;color:#f5e7f2;line-height:1.8;margin:18px auto 0;max-width:480px}
-.message strong{display:block;color:#ffe09a;font:700 clamp(1.3rem,4vw,1.7rem)/1.45 'Playfair Display',serif;margin:16px auto}
-.signature{color:#ffd477;font:1.25rem 'Playfair Display',serif;margin-top:22px}
-#again{margin-top:25px}
+.message{font-size:1.08rem;color:#f5e7f2;line-height:1.8;margin:16px auto 0;max-width:480px}
+.message strong{display:block;color:#ffe09a;font:700 clamp(1.3rem,4vw,1.7rem)/1.45 'Playfair Display',serif;margin:12px auto}
+.signature{color:#ffd477;font:1.25rem/1.6 'Playfair Display',serif;margin:18px auto 0}
+.signature .to{display:block;font-size:clamp(1.45rem,5vw,1.9rem);font-weight:800;color:#ffe09a}
+.signature .from{display:block;margin-top:5px;color:#fff2d4;font-size:1.08rem}
+#again{margin-top:22px}
 .confetti{position:fixed;top:-25px;z-index:5;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .firework{position:fixed;z-index:4;pointer-events:none;font-size:clamp(22px,4vw,38px);animation:burst 1.5s ease-out forwards;filter:drop-shadow(0 0 12px #ffd477)}
 @keyframes burst{0%{opacity:0;transform:scale(.2) rotate(0)}20%{opacity:1;transform:scale(1.3) rotate(35deg)}100%{opacity:0;transform:scale(.45) translateY(-90px) rotate(100deg)}}
-footer{position:fixed;bottom:17px;color:#bdaacb;font-size:.7rem;letter-spacing:.08em}
-@media(max-width:420px){.buttons{gap:10px}button{min-width:112px;padding:14px 22px}.card{padding:28px 19px}}
+footer{position:fixed;bottom:12px;left:0;right:0;text-align:center;color:#bdaacb;font-size:.68rem;letter-spacing:.08em;pointer-events:none}
+@media(max-width:420px){.buttons{gap:10px}button{min-width:112px;padding:14px 22px}.card{padding:24px 18px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <div class="glow g1"></div><div class="glow g2"></div><div id="stars"></div>
 <main class="card" id="invite">
-  <div class="eyebrow">A little festive surprise</div><div class="lamp">🪔</div>
+  <div class="eyebrow">A little festive surprise</div>
+  <div class="names">For Paddu Bangaramm 💛</div>
+  <div class="lamp">🪔</div>
   <h1>Let's make this <span>Diwali</span><br>extra special!</h1>
-  <p class="subtitle">The lights are brighter, the sky is glowing, and I have one little question for you...</p>
-  <p class="question">Do you want to celebrate this Diwali with me?</p>
+  <p class="subtitle">You make every celebration brighter! ✨</p>
+  <p class="question">Do you want to celebrate this Diwali with me or not?</p>
   <div class="buttons" id="buttonArea"><button id="yes">Yes! ✨</button><button id="no" type="button">No 🙈</button></div>
   <p class="hint">Choose wisely... there's a little surprise waiting! 💛</p>
+  <p class="names">— Bhargav</p>
 </main>
 <main class="card hidden" id="celebration" aria-live="polite">
-  <div class="eyebrow">You just made this Diwali brighter</div><div class="lamp">🎆</div>
+  <div class="eyebrow">You just made this Diwali brighter</div>
+  <div class="lamp">🎆</div>
   <h1>YAYYYY! <span>It's a plan!</span></h1>
   <div class="message">
     <strong>You are the best gift I got in this year. 💛</strong>
     Let’s celebrate this Diwali with full of joy and happiness. May our day be filled with lights, laughter, sweet memories and lots of sparkle! 🪔✨
   </div>
-  <div class="signature">Happy Diwali, Paddu Bangaramm! 💖<br>— Bhargav</div>
+  <div class="signature">
+    <span class="to">Paddu Bangaramm 💖</span>
+    You make every celebration brighter!
+    <span class="from">With love, Bhargav</span>
+  </div>
   <button id="again">Celebrate Again! 🎆</button>
 </main>
 <footer>MADE WITH ✨ FOR A LITTLE DIWALI MAGIC</footer>
@@ -57,46 +71,51 @@ const stars=document.getElementById('stars');
 for(let i=0;i<55;i++){const s=document.createElement('span');s.className='star';s.textContent='✦';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=8+Math.random()*12+'px';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
 
 const no=document.getElementById('no');
-let noHasMoved=false;
-function moveNoButton(pointerX=(innerWidth/2),pointerY=(innerHeight/2)){
-  const rect=no.getBoundingClientRect(),margin=14;
+let lastDodge=0;
+function moveNoButton(pointerX=innerWidth/2,pointerY=innerHeight/2){
+  const rect=no.getBoundingClientRect(),margin=12;
   const maxX=Math.max(margin,innerWidth-rect.width-margin);
   const maxY=Math.max(margin,innerHeight-rect.height-margin);
-  const candidates=[
-    [margin,margin],[maxX,margin],[margin,maxY],[maxX,maxY],
-    [Math.max(margin,(innerWidth-rect.width)/2),margin],
-    [Math.max(margin,(innerWidth-rect.width)/2),maxY],
-    [margin,Math.max(margin,(innerHeight-rect.height)/2)],
-    [maxX,Math.max(margin,(innerHeight-rect.height)/2)]
-  ];
-  let best=candidates[0],bestDistance=-1;
-  for(const [x,y] of candidates){
+  const choices=[];
+  for(let i=0;i<24;i++){
+    choices.push([margin+Math.random()*Math.max(0,maxX-margin),margin+Math.random()*Math.max(0,maxY-margin)]);
+  }
+  choices.push([margin,margin],[maxX,margin],[margin,maxY],[maxX,maxY]);
+  let chosen=choices[0],farthest=-1;
+  for(const [x,y] of choices){
     const cx=x+rect.width/2,cy=y+rect.height/2;
-    const distance=Math.hypot(cx-pointerX,cy-pointerY);
-    if(distance>bestDistance){bestDistance=distance;best=[x,y]}
+    const d=Math.hypot(cx-pointerX,cy-pointerY);
+    if(d>farthest){farthest=d;chosen=[x,y]}
   }
   no.style.position='fixed';
-  no.style.left=best[0]+'px';
-  no.style.top=best[1]+'px';
-  no.style.zIndex='20';
-  noHasMoved=true;
+  no.style.left=Math.round(chosen[0])+'px';
+  no.style.top=Math.round(chosen[1])+'px';
+  no.style.zIndex='30';
+  lastDodge=Date.now();
 }
-function pointerIsNearNo(x,y){
-  const r=no.getBoundingClientRect();
-  const cx=r.left+r.width/2,cy=r.top+r.height/2;
-  return Math.hypot(cx-x,cy-y)<125;
+function cursorNearButton(x,y){
+  const r=no.getBoundingClientRect(),pad=115;
+  return x>=r.left-pad&&x<=r.right+pad&&y>=r.top-pad&&y<=r.bottom+pad;
 }
-document.addEventListener('pointermove',e=>{
-  if(!document.getElementById('invite').classList.contains('hidden')&&pointerIsNearNo(e.clientX,e.clientY)){
+function dodgeIfApproaching(e){
+  if(document.getElementById('invite').classList.contains('hidden'))return;
+  if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+  if(cursorNearButton(e.clientX,e.clientY)&&Date.now()-lastDodge>280){
     moveNoButton(e.clientX,e.clientY);
   }
-});
+}
+document.addEventListener('pointermove',dodgeIfApproaching,true);
 no.addEventListener('pointerenter',e=>moveNoButton(e.clientX,e.clientY));
 no.addEventListener('touchstart',e=>{e.preventDefault();const t=e.touches[0];moveNoButton(t.clientX,t.clientY)},{passive:false});
-no.addEventListener('click',e=>moveNoButton(e.clientX||innerWidth/2,e.clientY||innerHeight/2));
-addEventListener('resize',()=>{if(noHasMoved&&!document.getElementById('invite').classList.contains('hidden'))moveNoButton(innerWidth/2,innerHeight/2)});
+no.addEventListener('click',e=>{e.preventDefault();moveNoButton(e.clientX||innerWidth/2,e.clientY||innerHeight/2)});
+addEventListener('resize',()=>{
+  if(no.style.position==='fixed'){
+    const r=no.getBoundingClientRect();
+    no.style.left=Math.max(12,Math.min(innerWidth-r.width-12,r.left))+'px';
+    no.style.top=Math.max(12,Math.min(innerHeight-r.height-12,r.top))+'px';
+  }
+});
 
-let celebrationTimers=[];
 function launchFireworks(){
   const symbols=['🎆','🎇','✨','💖','🌟','🎉'];
   for(let i=0;i<32;i++){
@@ -119,14 +138,8 @@ function showCelebration(){
   document.getElementById('celebration').classList.remove('hidden');
   launchFireworks();
 }
-function resetInvite(){
-  document.getElementById('celebration').classList.add('hidden');
-  document.getElementById('invite').classList.remove('hidden');
-  no.style.position='';no.style.left='';no.style.top='';no.style.zIndex='';
-  noHasMoved=false;
-}
 document.getElementById('yes').addEventListener('click',showCelebration);
-document.getElementById('again').addEventListener('click',()=>{launchFireworks()});
+document.getElementById('again').addEventListener('click',launchFireworks);
 </script>
 </body>
 </html>
