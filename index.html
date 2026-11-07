@@ -21,7 +21,13 @@ h1{font:800 clamp(2rem,6vw,3.4rem)/1.13 'Playfair Display',serif;margin:12px 0 1
 .buttons{display:flex;justify-content:center;align-items:center;gap:18px;margin:32px auto 10px;min-height:58px}
 button{border:0;border-radius:999px;padding:15px 34px;min-width:126px;font:700 1rem 'DM Sans',sans-serif;cursor:pointer;touch-action:manipulation}
 #yes,#again{color:#32152e;background:linear-gradient(135deg,#ffe7a5,#ffb94f);box-shadow:0 8px 25px #ffbd5845}
-#no{color:white;background:#ffffff1f;border:1px solid #ffffff80;white-space:nowrap;z-index:30;transition:left .12s ease-out,top .12s ease-out}
+#no{color:white;background:#ffffff1f;border:1px solid #ffffff80;white-space:nowrap;z-index:30;transition:left .12s cubic-bezier(.2,.8,.2,1),top .12s cubic-bezier(.2,.8,.2,1);box-shadow:0 8px 24px #0003}
+.game-intro{margin:17px auto 10px;padding:11px 14px;max-width:460px;border:1px dashed #ffd47780;border-radius:15px;color:#f5dfbb;font-size:.88rem;line-height:1.5}
+.scoreline{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:14px auto 0;color:#e9d9f1;font-size:.82rem}
+.scoreline b{color:#ffe09a;font-size:1rem}
+.tease{min-height:26px;margin:12px auto 0;color:#ffd477;font-weight:700;font-size:.9rem}
+#yes{transform:scale(var(--yes-scale,1));transition:transform .2s ease,filter .2s ease;filter:drop-shadow(0 0 8px #ffcb6b55)}
+#yes:hover{filter:brightness(1.12) drop-shadow(0 0 14px #ffcb6b99)}
 .hint{color:#bfaecb;font-size:.78rem;margin-top:18px}.hidden{display:none!important}
 .message{font-size:1.08rem;color:#f5e7f2;line-height:1.8;margin:16px auto 0;max-width:480px}
 .message strong{display:block;color:#ffe09a;font:700 clamp(1.3rem,4vw,1.7rem)/1.45 'Playfair Display',serif;margin:12px auto}
@@ -46,8 +52,11 @@ footer{position:fixed;bottom:12px;left:0;right:0;text-align:center;color:#bdaacb
   <h1>Let's make this <span>Diwali</span><br>extra special!</h1>
   <p class="subtitle">You make every celebration brighter! ✨</p>
   <p class="question">Do you want to celebrate this Diwali with me or not?</p>
+  <p class="game-intro">🎮 MINI CHALLENGE: Try catching the <b>NO</b> button. Spoiler: it's faster than your Wi-Fi! 😂</p>
+  <div class="scoreline"><span>NO escapes: <b id="escapeCount">0</b></span><span id="levelText">Difficulty: chill 😎</span></div>
   <div class="buttons" id="buttonArea"><button id="yes">Yes! ✨</button><button id="no" type="button">No 🙈</button></div>
-  <p class="hint">Choose wisely... there's a little surprise waiting! 💛</p>
+  <p class="tease" id="teaseLine" aria-live="polite">The No button is feeling suspicious... 👀</p>
+  <p class="hint">Psst... the YES button gets bigger every time NO runs away. 💛</p>
   <p class="names">— Bhargav</p>
 </main>
 <main class="card hidden" id="celebration" aria-live="polite">
@@ -63,7 +72,7 @@ footer{position:fixed;bottom:12px;left:0;right:0;text-align:center;color:#bdaacb
     You make every celebration brighter!
     <span class="from">With love, Bhargav</span>
   </div>
-  <button id="again">Celebrate Again! 🎆</button>
+  <p class="message">Official result: you defeated the No button! 🥳</p><button id="again">Celebrate Again! 🎆</button>
 </main>
 <footer>MADE WITH ✨ FOR A LITTLE DIWALI MAGIC</footer>
 <script>
@@ -72,6 +81,27 @@ for(let i=0;i<55;i++){const s=document.createElement('span');s.className='star';
 
 const no=document.getElementById('no');
 let lastDodge=0;
+let escapeCount=0;
+const funnyLines=[
+  "Too slow! The No button has tiny turbo engines. 🏎️",
+  "Nope! Even the sweets can't catch me! 🍬",
+  "Breaking news: NO is still on the run! 📰",
+  "That was close... said the button from 3 screens away. 😂",
+  "Your cursor needs a Diwali holiday. 🏖️",
+  "NO says: please stop chasing, I'm shy! 🙈",
+  "The YES button is looking more tempting, right? 👀",
+  "Achievement unlocked: professional button chaser! 🏆",
+  "Plot twist: this button has legs. 🦵"
+];
+function updateGame(){
+  escapeCount++;
+  document.getElementById('escapeCount').textContent=escapeCount;
+  document.getElementById('teaseLine').textContent=funnyLines[(escapeCount-1)%funnyLines.length];
+  const scale=Math.min(1.55,1+escapeCount*.055);
+  document.getElementById('yes').style.setProperty('--yes-scale',scale);
+  const level=escapeCount<3?'Difficulty: chill 😎':escapeCount<6?'Difficulty: spicy 🌶️':escapeCount<10?'Difficulty: expert 🤯':'Difficulty: LEGENDARY 👑';
+  document.getElementById('levelText').textContent=level;
+}
 function moveNoButton(pointerX=innerWidth/2,pointerY=innerHeight/2){
   const rect=no.getBoundingClientRect(),margin=12;
   const maxX=Math.max(margin,innerWidth-rect.width-margin);
@@ -92,6 +122,7 @@ function moveNoButton(pointerX=innerWidth/2,pointerY=innerHeight/2){
   no.style.top=Math.round(chosen[1])+'px';
   no.style.zIndex='30';
   lastDodge=Date.now();
+  updateGame();
 }
 function cursorNearButton(x,y){
   const r=no.getBoundingClientRect(),pad=115;
