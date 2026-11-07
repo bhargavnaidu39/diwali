@@ -8,167 +8,114 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;min-height:100svh;overflow-x:hidden;overflow-y:auto;display:grid;place-items:center;padding:48px 0 60px;background:radial-gradient(ellipse at 50% 0%,#59265e,#25113e 48%,#10091f);color:#fff8ec;font-family:'DM Sans',sans-serif}
-.glow{position:fixed;width:390px;height:390px;border-radius:50%;filter:blur(90px);opacity:.2;pointer-events:none}.g1{background:#ff9e43;top:-230px;left:-130px}.g2{background:#b64cff;bottom:-260px;right:-100px}
+body{margin:0;min-height:100vh;min-height:100svh;overflow-x:hidden;display:grid;place-items:center;padding:45px 0 58px;background:radial-gradient(ellipse at 50% 0%,#71345d,#29113e 50%,#10091f);color:#fff8ec;font-family:'DM Sans',sans-serif}
+.glow{position:fixed;width:390px;height:390px;border-radius:50%;filter:blur(90px);opacity:.22;pointer-events:none}.g1{background:#ff9e43;top:-230px;left:-130px}.g2{background:#b64cff;bottom:-260px;right:-100px}
 #stars{position:fixed;inset:0;pointer-events:none}.star{position:absolute;color:#ffe4a3;animation:twinkle 2.5s infinite alternate}@keyframes twinkle{to{opacity:.15;transform:scale(.65)}}
-.card{position:relative;z-index:2;width:min(92vw,650px);max-height:calc(100svh - 90px);overflow-y:auto;padding:clamp(24px,5vw,52px) clamp(19px,6vw,54px);text-align:center;border:1px solid #ffdc9e40;border-radius:30px;background:linear-gradient(145deg,#ffffff1f,#ffffff0b);box-shadow:0 25px 90px #0006;backdrop-filter:blur(16px)}
+.card{position:relative;z-index:2;width:min(92vw,680px);max-height:calc(100svh - 82px);overflow-y:auto;padding:clamp(24px,5vw,52px) clamp(19px,6vw,54px);text-align:center;border:1px solid #ffdc9e55;border-radius:30px;background:linear-gradient(145deg,#ffffff22,#ffffff0b);box-shadow:0 25px 90px #0006;backdrop-filter:blur(16px)}
 .eyebrow{color:#ffd477;text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700}
 .names{margin:12px auto 4px;color:#ffe09a;font:700 clamp(1.15rem,4vw,1.5rem) 'Playfair Display',serif}
 .lamp{font-size:4.5rem;margin:12px 0 8px;display:inline-block;filter:drop-shadow(0 0 22px #ffad43);animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-9px)}}
 h1{font:800 clamp(2rem,6vw,3.4rem)/1.13 'Playfair Display',serif;margin:12px 0 16px}h1 span{color:#ffd477}
-.subtitle{color:#e7d9ed;line-height:1.75;max-width:460px;margin:auto}
+.subtitle{color:#f0dfed;line-height:1.8;max-width:490px;margin:auto}
 .question{font:600 clamp(1.2rem,4vw,1.65rem) 'Playfair Display',serif;margin:25px 0 0}
 .buttons{display:flex;justify-content:center;align-items:center;gap:18px;margin:32px auto 10px;min-height:58px}
 button{border:0;border-radius:999px;padding:15px 34px;min-width:126px;font:700 1rem 'DM Sans',sans-serif;cursor:pointer;touch-action:manipulation}
 #yes,#again{color:#32152e;background:linear-gradient(135deg,#ffe7a5,#ffb94f);box-shadow:0 8px 25px #ffbd5845}
-#no{color:white;background:#ffffff1f;border:1px solid #ffffff80;white-space:nowrap;z-index:30;transition:left .12s cubic-bezier(.2,.8,.2,1),top .12s cubic-bezier(.2,.8,.2,1);box-shadow:0 8px 24px #0003}
-.game-intro{margin:17px auto 10px;padding:11px 14px;max-width:460px;border:1px dashed #ffd47780;border-radius:15px;color:#f5dfbb;font-size:.88rem;line-height:1.5}
-.scoreline{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:14px auto 0;color:#e9d9f1;font-size:.82rem}
-.scoreline b{color:#ffe09a;font-size:1rem}
-.tease{min-height:26px;margin:12px auto 0;color:#ffd477;font-weight:700;font-size:.9rem}
-#yes{transform:scale(var(--yes-scale,1));transition:transform .2s ease,filter .2s ease;filter:drop-shadow(0 0 8px #ffcb6b55)}
-#yes:hover{filter:brightness(1.12) drop-shadow(0 0 14px #ffcb6b99)}
-.hint{color:#bfaecb;font-size:.78rem;margin-top:18px}.hidden{display:none!important}
-.message{font-size:1.08rem;color:#f5e7f2;line-height:1.8;margin:16px auto 0;max-width:480px}
+#no{color:white;background:#ffffff1f;border:1px solid #ffffff80;white-space:nowrap;z-index:30;transition:left .14s ease,top .14s ease;box-shadow:0 8px 24px #0003}
+.hint{color:#d6c2df;font-size:.8rem;margin-top:18px}.hidden{display:none!important}
+.message{font-size:1.06rem;color:#f5e7f2;line-height:1.85;margin:16px auto 0;max-width:510px}
 .message strong{display:block;color:#ffe09a;font:700 clamp(1.3rem,4vw,1.7rem)/1.45 'Playfair Display',serif;margin:12px auto}
 .signature{color:#ffd477;font:1.25rem/1.6 'Playfair Display',serif;margin:18px auto 0}
 .signature .to{display:block;font-size:clamp(1.45rem,5vw,1.9rem);font-weight:800;color:#ffe09a}
 .signature .from{display:block;margin-top:5px;color:#fff2d4;font-size:1.08rem}
-#again{margin-top:22px}
+.festive-lights{display:flex;justify-content:center;gap:clamp(8px,3vw,20px);margin:8px auto 22px;font-size:clamp(1.5rem,5vw,2.1rem);filter:drop-shadow(0 0 9px #ffb94f)}
+.festive-lights span{display:inline-block;animation:glimmer 1.8s ease-in-out infinite alternate}.festive-lights span:nth-child(2n){animation-delay:.5s}.festive-lights span:nth-child(3n){animation-delay:1s}
+@keyframes glimmer{to{transform:translateY(-5px) scale(1.12);filter:brightness(1.4)}}
+.diya-row{display:flex;justify-content:center;gap:clamp(8px,3vw,22px);margin:25px auto 20px;font-size:clamp(1.8rem,6vw,2.7rem)}
+.diya-row span{animation:float 2.5s ease-in-out infinite}.diya-row span:nth-child(2){animation-delay:.3s}.diya-row span:nth-child(3){animation-delay:.6s}.diya-row span:nth-child(4){animation-delay:.9s}.diya-row span:nth-child(5){animation-delay:1.2s}
+.rangoli{width:132px;height:132px;margin:24px auto 12px;border-radius:50%;display:grid;place-items:center;position:relative;background:repeating-conic-gradient(from 0deg,#ffcf70 0 9deg,#e85b82 9deg 18deg,#8c5ad8 18deg 27deg,#4eb8a1 27deg 36deg);box-shadow:0 0 28px #ffbd5866;animation:turn 32s linear infinite}
+.rangoli:before{content:"";position:absolute;inset:12px;border:3px dotted #fff3d4;border-radius:50%}.rangoli span{font-size:3.1rem;filter:drop-shadow(0 2px 5px #4b164b);animation:counterturn 32s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}@keyframes counterturn{to{transform:rotate(-360deg)}}
+.wish-panel{margin:22px auto 8px;padding:17px 18px;border:1px solid #ffd47766;border-radius:20px;background:linear-gradient(120deg,#ffca7020,#e85b8220)}
+.wish-panel p{margin:5px 0;color:#ffebc8;line-height:1.7}
+.festival-note{color:#e7d7ec;font-size:.92rem;line-height:1.7;margin:14px auto}
+#again{margin-top:20px}
 .confetti{position:fixed;top:-25px;z-index:5;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .firework{position:fixed;z-index:4;pointer-events:none;font-size:clamp(22px,4vw,38px);animation:burst 1.5s ease-out forwards;filter:drop-shadow(0 0 12px #ffd477)}
 @keyframes burst{0%{opacity:0;transform:scale(.2) rotate(0)}20%{opacity:1;transform:scale(1.3) rotate(35deg)}100%{opacity:0;transform:scale(.45) translateY(-90px) rotate(100deg)}}
-footer{position:fixed;bottom:12px;left:0;right:0;text-align:center;color:#bdaacb;font-size:.68rem;letter-spacing:.08em;pointer-events:none}
-@media(max-width:420px){.buttons{gap:10px}button{min-width:112px;padding:14px 22px}.card{padding:24px 18px}}
+footer{position:fixed;bottom:12px;left:0;right:0;text-align:center;color:#d0b9d4;font-size:.68rem;letter-spacing:.08em;pointer-events:none}
+@media(max-width:420px){.buttons{gap:10px}button{min-width:112px;padding:14px 22px}.card{padding:24px 18px}.rangoli{width:112px;height:112px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <div class="glow g1"></div><div class="glow g2"></div><div id="stars"></div>
 <main class="card" id="invite">
+  <div class="festive-lights" aria-hidden="true"><span>🪔</span><span>✨</span><span>🏮</span><span>✨</span><span>🪔</span></div>
   <div class="eyebrow">A little festive surprise</div>
   <div class="names">For Paddu Bangaramm 💛</div>
   <div class="lamp">🪔</div>
   <h1>Let's make this <span>Diwali</span><br>extra special!</h1>
-  <p class="subtitle">You make every celebration brighter! ✨</p>
+  <p class="subtitle">May our celebration glow with beautiful lights, sweet moments, happy laughter and memories that sparkle long after the diyas fade. ✨</p>
   <p class="question">Do you want to celebrate this Diwali with me or not?</p>
-  <p class="game-intro">🎮 MINI CHALLENGE: Try catching the <b>NO</b> button. Spoiler: it's faster than your Wi-Fi! 😂</p>
-  <div class="scoreline"><span>NO escapes: <b id="escapeCount">0</b></span><span id="levelText">Difficulty: chill 😎</span></div>
   <div class="buttons" id="buttonArea"><button id="yes">Yes! ✨</button><button id="no" type="button">No 🙈</button></div>
-  <p class="tease" id="teaseLine" aria-live="polite">The No button is feeling suspicious... 👀</p>
-  <p class="hint">Psst... the YES button gets bigger every time NO runs away. 💛</p>
+  <p class="hint">A little Diwali surprise is waiting on the other side. 💛</p>
   <p class="names">— Bhargav</p>
 </main>
 <main class="card hidden" id="celebration" aria-live="polite">
-  <div class="eyebrow">You just made this Diwali brighter</div>
+  <div class="festive-lights" aria-hidden="true"><span>✨</span><span>🪔</span><span>🏮</span><span>🪔</span><span>✨</span></div>
+  <div class="eyebrow">A celebration filled with light and love</div>
   <div class="lamp">🎆</div>
-  <h1>YAYYYY! <span>It's a plan!</span></h1>
+  <h1>Happy <span>Diwali!</span></h1>
   <div class="message">
     <strong>You are the best gift I got in this year. 💛</strong>
-    Let’s celebrate this Diwali with full of joy and happiness. May our day be filled with lights, laughter, sweet memories and lots of sparkle! 🪔✨
+    Let’s celebrate this Diwali with full of joy and happiness. May our day be filled with lights, laughter, sweet memories and lots of sparkle!
+  </div>
+  <div class="rangoli" aria-label="Colourful rangoli decoration"><span>🪔</span></div>
+  <div class="diya-row" aria-label="Glowing diyas"><span>🪔</span><span>🪔</span><span>🪔</span><span>🪔</span><span>🪔</span></div>
+  <div class="wish-panel">
+    <p>🌸 May your days shine as bright as the Diwali lights.</p>
+    <p>🍬 May every moment bring sweetness and happiness.</p>
+    <p>🌟 May this festival fill your heart with peace, joy and endless smiles.</p>
   </div>
   <div class="signature">
-    <span class="to">Paddu Bangaramm 💖</span>
+    <span class="to">Happy Diwali, Paddu Bangaramm! 💖</span>
     You make every celebration brighter!
     <span class="from">With love, Bhargav</span>
   </div>
-  <p class="message">Official result: you defeated the No button! 🥳</p><button id="again">Celebrate Again! 🎆</button>
+  <p class="festival-note">Let the diyas glow, the rangoli bloom and the festive spirit fill every corner with magic. 🪔✨</p>
+  <button id="again">Celebrate Again! 🎆</button>
 </main>
 <footer>MADE WITH ✨ FOR A LITTLE DIWALI MAGIC</footer>
 <script>
 const stars=document.getElementById('stars');
 for(let i=0;i<55;i++){const s=document.createElement('span');s.className='star';s.textContent='✦';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=8+Math.random()*12+'px';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
-
 const no=document.getElementById('no');
 let lastDodge=0;
-let escapeCount=0;
-const funnyLines=[
-  "Too slow! The No button has tiny turbo engines. 🏎️",
-  "Nope! Even the sweets can't catch me! 🍬",
-  "Breaking news: NO is still on the run! 📰",
-  "That was close... said the button from 3 screens away. 😂",
-  "Your cursor needs a Diwali holiday. 🏖️",
-  "NO says: please stop chasing, I'm shy! 🙈",
-  "The YES button is looking more tempting, right? 👀",
-  "Achievement unlocked: professional button chaser! 🏆",
-  "Plot twist: this button has legs. 🦵"
-];
-function updateGame(){
-  escapeCount++;
-  document.getElementById('escapeCount').textContent=escapeCount;
-  document.getElementById('teaseLine').textContent=funnyLines[(escapeCount-1)%funnyLines.length];
-  const scale=Math.min(1.55,1+escapeCount*.055);
-  document.getElementById('yes').style.setProperty('--yes-scale',scale);
-  const level=escapeCount<3?'Difficulty: chill 😎':escapeCount<6?'Difficulty: spicy 🌶️':escapeCount<10?'Difficulty: expert 🤯':'Difficulty: LEGENDARY 👑';
-  document.getElementById('levelText').textContent=level;
-}
 function moveNoButton(pointerX=innerWidth/2,pointerY=innerHeight/2){
   const rect=no.getBoundingClientRect(),margin=12;
-  const maxX=Math.max(margin,innerWidth-rect.width-margin);
-  const maxY=Math.max(margin,innerHeight-rect.height-margin);
-  const choices=[];
-  for(let i=0;i<24;i++){
-    choices.push([margin+Math.random()*Math.max(0,maxX-margin),margin+Math.random()*Math.max(0,maxY-margin)]);
-  }
-  choices.push([margin,margin],[maxX,margin],[margin,maxY],[maxX,maxY]);
-  let chosen=choices[0],farthest=-1;
-  for(const [x,y] of choices){
-    const cx=x+rect.width/2,cy=y+rect.height/2;
-    const d=Math.hypot(cx-pointerX,cy-pointerY);
-    if(d>farthest){farthest=d;chosen=[x,y]}
-  }
-  no.style.position='fixed';
-  no.style.left=Math.round(chosen[0])+'px';
-  no.style.top=Math.round(chosen[1])+'px';
-  no.style.zIndex='30';
-  lastDodge=Date.now();
-  updateGame();
-}
-function cursorNearButton(x,y){
-  const r=no.getBoundingClientRect(),pad=115;
-  return x>=r.left-pad&&x<=r.right+pad&&y>=r.top-pad&&y<=r.bottom+pad;
+  const maxX=Math.max(margin,innerWidth-rect.width-margin),maxY=Math.max(margin,innerHeight-rect.height-margin);
+  let x=margin+Math.random()*Math.max(0,maxX-margin),y=margin+Math.random()*Math.max(0,maxY-margin);
+  for(let i=0;i<18;i++){const tx=margin+Math.random()*Math.max(0,maxX-margin),ty=margin+Math.random()*Math.max(0,maxY-margin);if(Math.hypot(tx+rect.width/2-pointerX,ty+rect.height/2-pointerY)>Math.hypot(x+rect.width/2-pointerX,y+rect.height/2-pointerY)){x=tx;y=ty}}
+  no.style.position='fixed';no.style.left=Math.round(x)+'px';no.style.top=Math.round(y)+'px';no.style.zIndex='30';lastDodge=Date.now();
 }
 function dodgeIfApproaching(e){
   if(document.getElementById('invite').classList.contains('hidden'))return;
   if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
-  if(cursorNearButton(e.clientX,e.clientY)&&Date.now()-lastDodge>280){
-    moveNoButton(e.clientX,e.clientY);
-  }
+  const r=no.getBoundingClientRect(),pad=110;
+  if(e.clientX>=r.left-pad&&e.clientX<=r.right+pad&&e.clientY>=r.top-pad&&e.clientY<=r.bottom+pad&&Date.now()-lastDodge>280)moveNoButton(e.clientX,e.clientY);
 }
 document.addEventListener('pointermove',dodgeIfApproaching,true);
 no.addEventListener('pointerenter',e=>moveNoButton(e.clientX,e.clientY));
 no.addEventListener('touchstart',e=>{e.preventDefault();const t=e.touches[0];moveNoButton(t.clientX,t.clientY)},{passive:false});
 no.addEventListener('click',e=>{e.preventDefault();moveNoButton(e.clientX||innerWidth/2,e.clientY||innerHeight/2)});
-addEventListener('resize',()=>{
-  if(no.style.position==='fixed'){
-    const r=no.getBoundingClientRect();
-    no.style.left=Math.max(12,Math.min(innerWidth-r.width-12,r.left))+'px';
-    no.style.top=Math.max(12,Math.min(innerHeight-r.height-12,r.top))+'px';
-  }
-});
-
+addEventListener('resize',()=>{if(no.style.position==='fixed'){const r=no.getBoundingClientRect();no.style.left=Math.max(12,Math.min(innerWidth-r.width-12,r.left))+'px';no.style.top=Math.max(12,Math.min(innerHeight-r.height-12,r.top))+'px'}});
 function launchFireworks(){
-  const symbols=['🎆','🎇','✨','💖','🌟','🎉'];
-  for(let i=0;i<32;i++){
-    const f=document.createElement('span');f.className='firework';
-    f.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-    f.style.left=(5+Math.random()*90)+'vw';f.style.top=(8+Math.random()*72)+'vh';
-    f.style.animationDelay=(Math.random()*.9)+'s';document.body.appendChild(f);
-    setTimeout(()=>f.remove(),2600);
-  }
-  for(let i=0;i<65;i++){
-    const c=document.createElement('span');c.className='confetti';
-    c.textContent=['✨','🎉','💛','🌟','🪔','💖'][Math.floor(Math.random()*6)];
-    c.style.left=Math.random()*100+'vw';c.style.animationDuration=(2+Math.random()*3)+'s';
-    c.style.animationDelay=(Math.random()*.8)+'s';c.style.fontSize=(14+Math.random()*18)+'px';
-    document.body.appendChild(c);setTimeout(()=>c.remove(),6000);
-  }
+  const symbols=['🎆','🎇','✨','💖','🌟','🎉','🪔'];
+  for(let i=0;i<38;i++){const f=document.createElement('span');f.className='firework';f.textContent=symbols[Math.floor(Math.random()*symbols.length)];f.style.left=(5+Math.random()*90)+'vw';f.style.top=(8+Math.random()*72)+'vh';f.style.animationDelay=(Math.random()*.9)+'s';document.body.appendChild(f);setTimeout(()=>f.remove(),2600)}
+  for(let i=0;i<65;i++){const c=document.createElement('span');c.className='confetti';c.textContent=['✨','🎉','💛','🌟','🪔','💖','🌸'][Math.floor(Math.random()*7)];c.style.left=Math.random()*100+'vw';c.style.animationDuration=(2+Math.random()*3)+'s';c.style.animationDelay=(Math.random()*.8)+'s';c.style.fontSize=(14+Math.random()*18)+'px';document.body.appendChild(c);setTimeout(()=>c.remove(),6000)}
 }
-function showCelebration(){
-  document.getElementById('invite').classList.add('hidden');
-  document.getElementById('celebration').classList.remove('hidden');
-  launchFireworks();
-}
+function showCelebration(){document.getElementById('invite').classList.add('hidden');document.getElementById('celebration').classList.remove('hidden');launchFireworks()}
 document.getElementById('yes').addEventListener('click',showCelebration);
 document.getElementById('again').addEventListener('click',launchFireworks);
 </script>
