@@ -1,31 +1,132 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#180b2c"><title>A Little Diwali Surprise ✨</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#180b2c">
+<title>A Little Diwali Surprise ✨</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
-*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 0%,#59265e,#25113e 48%,#10091f);color:#fff8ec;font-family:'DM Sans',sans-serif}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 0%,#59265e,#25113e 48%,#10091f);color:#fff8ec;font-family:'DM Sans',sans-serif}
 .glow{position:fixed;width:390px;height:390px;border-radius:50%;filter:blur(90px);opacity:.2;pointer-events:none}.g1{background:#ff9e43;top:-230px;left:-130px}.g2{background:#b64cff;bottom:-260px;right:-100px}
 #stars{position:fixed;inset:0;pointer-events:none}.star{position:absolute;color:#ffe4a3;animation:twinkle 2.5s infinite alternate}@keyframes twinkle{to{opacity:.15;transform:scale(.65)}}
 .card{position:relative;z-index:2;width:min(92vw,650px);padding:clamp(28px,6vw,58px) clamp(20px,6vw,54px);text-align:center;border:1px solid #ffdc9e40;border-radius:30px;background:linear-gradient(145deg,#ffffff1f,#ffffff0b);box-shadow:0 25px 90px #0006;backdrop-filter:blur(16px)}
 .eyebrow{color:#ffd477;text-transform:uppercase;letter-spacing:.25em;font-size:.72rem;font-weight:700}.lamp{font-size:5rem;margin:14px 0 8px;display:inline-block;filter:drop-shadow(0 0 22px #ffad43);animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-9px)}}
 h1{font:800 clamp(2rem,6vw,3.5rem)/1.13 'Playfair Display',serif;margin:12px 0 16px}h1 span{color:#ffd477}.subtitle{color:#e7d9ed;line-height:1.75;max-width:460px;margin:auto}
 .question{font:600 clamp(1.2rem,4vw,1.65rem) 'Playfair Display',serif;margin:27px 0 0}.buttons{display:flex;justify-content:center;align-items:center;gap:18px;margin:34px auto 10px;min-height:58px}
-button{border:0;border-radius:999px;padding:15px 34px;min-width:126px;font:700 1rem 'DM Sans',sans-serif;cursor:pointer}#yes{color:#32152e;background:linear-gradient(135deg,#ffe7a5,#ffb94f);box-shadow:0 8px 25px #ffbd5845}#no{color:white;background:#ffffff1f;border:1px solid #ffffff4d}.hint{color:#bfaecb;font-size:.78rem;margin-top:18px}.hidden{display:none!important}
-.message{font-size:1.08rem;color:#f5e7f2;line-height:1.8;margin:18px auto 0;max-width:470px}.signature{color:#ffd477;font:1.25rem 'Playfair Display',serif;margin-top:22px}
-.confetti{position:fixed;top:-25px;z-index:5;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}footer{position:fixed;bottom:17px;color:#bdaacb;font-size:.7rem;letter-spacing:.08em}
-@media(max-width:420px){.buttons{gap:10px}button{min-width:112px;padding:14px 22px}}@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-</style></head>
-<body><div class="glow g1"></div><div class="glow g2"></div><div id="stars"></div>
-<main class="card" id="invite"><div class="eyebrow">A little festive surprise</div><div class="lamp">🪔</div>
-<h1>Let's make this <span>Diwali</span><br>extra special!</h1><p class="subtitle">The lights are brighter, the sky is glowing, and I have one little question for you...</p>
-<p class="question">Do you want to celebrate this Diwali with me?</p><div class="buttons"><button id="yes">Yes! ✨</button><button id="no">No 🙈</button></div><p class="hint">Choose wisely... there's a little surprise waiting! 💛</p></main>
-<main class="card hidden" id="celebration" aria-live="polite"><div class="eyebrow">You just made this Diwali brighter</div><div class="lamp">🎆</div><h1>Yaaay! <span>It's a plan!</span></h1><p class="message">Wishing you a Diwali filled with happiness, laughter, beautiful memories and endless little moments of joy. Let's make this celebration unforgettable! 🪔✨</p><div class="signature">Happy Diwali! 💛</div></main>
+button{border:0;border-radius:999px;padding:15px 34px;min-width:126px;font:700 1rem 'DM Sans',sans-serif;cursor:pointer;touch-action:manipulation}
+#yes,#again{color:#32152e;background:linear-gradient(135deg,#ffe7a5,#ffb94f);box-shadow:0 8px 25px #ffbd5845}
+#no{color:white;background:#ffffff1f;border:1px solid #ffffff70;transition:left .16s ease,top .16s ease;white-space:nowrap}
+.hint{color:#bfaecb;font-size:.78rem;margin-top:18px}.hidden{display:none!important}
+.message{font-size:1.08rem;color:#f5e7f2;line-height:1.8;margin:18px auto 0;max-width:480px}
+.message strong{display:block;color:#ffe09a;font:700 clamp(1.3rem,4vw,1.7rem)/1.45 'Playfair Display',serif;margin:16px auto}
+.signature{color:#ffd477;font:1.25rem 'Playfair Display',serif;margin-top:22px}
+#again{margin-top:25px}
+.confetti{position:fixed;top:-25px;z-index:5;pointer-events:none;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.firework{position:fixed;z-index:4;pointer-events:none;font-size:clamp(22px,4vw,38px);animation:burst 1.5s ease-out forwards;filter:drop-shadow(0 0 12px #ffd477)}
+@keyframes burst{0%{opacity:0;transform:scale(.2) rotate(0)}20%{opacity:1;transform:scale(1.3) rotate(35deg)}100%{opacity:0;transform:scale(.45) translateY(-90px) rotate(100deg)}}
+footer{position:fixed;bottom:17px;color:#bdaacb;font-size:.7rem;letter-spacing:.08em}
+@media(max-width:420px){.buttons{gap:10px}button{min-width:112px;padding:14px 22px}.card{padding:28px 19px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div><div id="stars"></div>
+<main class="card" id="invite">
+  <div class="eyebrow">A little festive surprise</div><div class="lamp">🪔</div>
+  <h1>Let's make this <span>Diwali</span><br>extra special!</h1>
+  <p class="subtitle">The lights are brighter, the sky is glowing, and I have one little question for you...</p>
+  <p class="question">Do you want to celebrate this Diwali with me?</p>
+  <div class="buttons" id="buttonArea"><button id="yes">Yes! ✨</button><button id="no" type="button">No 🙈</button></div>
+  <p class="hint">Choose wisely... there's a little surprise waiting! 💛</p>
+</main>
+<main class="card hidden" id="celebration" aria-live="polite">
+  <div class="eyebrow">You just made this Diwali brighter</div><div class="lamp">🎆</div>
+  <h1>YAYYYY! <span>It's a plan!</span></h1>
+  <div class="message">
+    <strong>You are the best gift I got in this year. 💛</strong>
+    Let’s celebrate this Diwali with full of joy and happiness. May our day be filled with lights, laughter, sweet memories and lots of sparkle! 🪔✨
+  </div>
+  <div class="signature">Happy Diwali, Paddu Bangaramm! 💖<br>— Bhargav</div>
+  <button id="again">Celebrate Again! 🎆</button>
+</main>
 <footer>MADE WITH ✨ FOR A LITTLE DIWALI MAGIC</footer>
 <script>
-const stars=document.getElementById('stars');for(let i=0;i<55;i++){const s=document.createElement('span');s.className='star';s.textContent='✦';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=8+Math.random()*12+'px';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
-const no=document.getElementById('no');function dodge(){const m=14,r=no.getBoundingClientRect();no.style.position='fixed';no.style.left=(m+Math.random()*Math.max(1,innerWidth-r.width-2*m))+'px';no.style.top=(m+Math.random()*Math.max(1,innerHeight-r.height-2*m))+'px';no.style.zIndex=10}
-no.addEventListener('pointerenter',dodge);no.addEventListener('touchstart',e=>{e.preventDefault();dodge()},{passive:false});no.addEventListener('click',dodge);
-document.getElementById('yes').addEventListener('click',()=>{document.getElementById('invite').classList.add('hidden');document.getElementById('celebration').classList.remove('hidden');for(let i=0;i<90;i++){const c=document.createElement('span');c.className='confetti';c.textContent=['✨','🎉','💛','🌟','🪔'][Math.floor(Math.random()*5)];c.style.left=Math.random()*100+'vw';c.style.animationDuration=2+Math.random()*3+'s';c.style.fontSize=14+Math.random()*18+'px';document.body.appendChild(c);setTimeout(()=>c.remove(),5200)}});
-</script></body></html>
+const stars=document.getElementById('stars');
+for(let i=0;i<55;i++){const s=document.createElement('span');s.className='star';s.textContent='✦';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=8+Math.random()*12+'px';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
+
+const no=document.getElementById('no');
+let noHasMoved=false;
+function moveNoButton(pointerX=(innerWidth/2),pointerY=(innerHeight/2)){
+  const rect=no.getBoundingClientRect(),margin=14;
+  const maxX=Math.max(margin,innerWidth-rect.width-margin);
+  const maxY=Math.max(margin,innerHeight-rect.height-margin);
+  const candidates=[
+    [margin,margin],[maxX,margin],[margin,maxY],[maxX,maxY],
+    [Math.max(margin,(innerWidth-rect.width)/2),margin],
+    [Math.max(margin,(innerWidth-rect.width)/2),maxY],
+    [margin,Math.max(margin,(innerHeight-rect.height)/2)],
+    [maxX,Math.max(margin,(innerHeight-rect.height)/2)]
+  ];
+  let best=candidates[0],bestDistance=-1;
+  for(const [x,y] of candidates){
+    const cx=x+rect.width/2,cy=y+rect.height/2;
+    const distance=Math.hypot(cx-pointerX,cy-pointerY);
+    if(distance>bestDistance){bestDistance=distance;best=[x,y]}
+  }
+  no.style.position='fixed';
+  no.style.left=best[0]+'px';
+  no.style.top=best[1]+'px';
+  no.style.zIndex='20';
+  noHasMoved=true;
+}
+function pointerIsNearNo(x,y){
+  const r=no.getBoundingClientRect();
+  const cx=r.left+r.width/2,cy=r.top+r.height/2;
+  return Math.hypot(cx-x,cy-y)<125;
+}
+document.addEventListener('pointermove',e=>{
+  if(!document.getElementById('invite').classList.contains('hidden')&&pointerIsNearNo(e.clientX,e.clientY)){
+    moveNoButton(e.clientX,e.clientY);
+  }
+});
+no.addEventListener('pointerenter',e=>moveNoButton(e.clientX,e.clientY));
+no.addEventListener('touchstart',e=>{e.preventDefault();const t=e.touches[0];moveNoButton(t.clientX,t.clientY)},{passive:false});
+no.addEventListener('click',e=>moveNoButton(e.clientX||innerWidth/2,e.clientY||innerHeight/2));
+addEventListener('resize',()=>{if(noHasMoved&&!document.getElementById('invite').classList.contains('hidden'))moveNoButton(innerWidth/2,innerHeight/2)});
+
+let celebrationTimers=[];
+function launchFireworks(){
+  const symbols=['🎆','🎇','✨','💖','🌟','🎉'];
+  for(let i=0;i<32;i++){
+    const f=document.createElement('span');f.className='firework';
+    f.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    f.style.left=(5+Math.random()*90)+'vw';f.style.top=(8+Math.random()*72)+'vh';
+    f.style.animationDelay=(Math.random()*.9)+'s';document.body.appendChild(f);
+    setTimeout(()=>f.remove(),2600);
+  }
+  for(let i=0;i<65;i++){
+    const c=document.createElement('span');c.className='confetti';
+    c.textContent=['✨','🎉','💛','🌟','🪔','💖'][Math.floor(Math.random()*6)];
+    c.style.left=Math.random()*100+'vw';c.style.animationDuration=(2+Math.random()*3)+'s';
+    c.style.animationDelay=(Math.random()*.8)+'s';c.style.fontSize=(14+Math.random()*18)+'px';
+    document.body.appendChild(c);setTimeout(()=>c.remove(),6000);
+  }
+}
+function showCelebration(){
+  document.getElementById('invite').classList.add('hidden');
+  document.getElementById('celebration').classList.remove('hidden');
+  launchFireworks();
+}
+function resetInvite(){
+  document.getElementById('celebration').classList.add('hidden');
+  document.getElementById('invite').classList.remove('hidden');
+  no.style.position='';no.style.left='';no.style.top='';no.style.zIndex='';
+  noHasMoved=false;
+}
+document.getElementById('yes').addEventListener('click',showCelebration);
+document.getElementById('again').addEventListener('click',()=>{launchFireworks()});
+</script>
+</body>
+</html>
